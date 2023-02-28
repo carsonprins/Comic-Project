@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="WASSSUB">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comics and Sacred Texts</title>
+    <link rel="stylesheet" href="includes/styling.css">
+    <link rel="short icon" type="image/jpg" href="img/ComicHandsLogo.jpg">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+  </head>
+  <body>
+
+  <header>
+      <div class="header-main">
+    <nav class="nav-header-main">
+      <a class="header-logo" href="index.php">
+      <img class="logo" src="img/ComicHandsLogo.jpg" alt="CAT">
+    </a>
+          <ul>
+            <li class="header"><a href="about.php">About</a></li>
+            <li><a href="submission.php">Submission</a></li>
+            <li><a href="library.php">Library</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-login">
+        <form action="includes/logout.inc.php" method="post">
+          <button type="submit" name="logout-submit">Logout</button>
+          </form>      </div>
+
+        <div class="header-mobile">
+          <nav class="nav-header-mobile">
+            <ul class="header-list">
+              <li class="menu_ul"><a class="header-menu" href="#"><img class="header-menu" id="header-menu" src="img/ui.png" alt="CAT"></a>
+                <ul class="menu_ul_mobo hidden">
+                  <li><a href="about.php">About</a></li>
+                  <li><a href="submission.php">Submission</a></li>
+                  <li><a href="library.php">Library</a></li>
+                </ul>
+              </li>
+              <li>
+              <a class="logo" href="index.php">
+              <img class="logo" src="img/candts.jpeg" alt="CAT">
+            </a>
+          </li>
+
+            </ul>
+              </nav>
+              </div>
+              <div class="header-login-mobile">
+                <form action="includes/logout.inc.php" method="post">
+                  <button type="submit" name="logout-submit">Logout</button>
+                  </form>              </div>
+
+
+  </header>
+      <div id="page-container">
+<main>
+  <div class='wrapper-main'>
+    <section class='section'>
+    <div class='section-default'>
+      <h1>Complete this database submission form</h1><br>
+            <h2>Comic information</h2><br>
+      <div class='hinttext'>
+      - If there is a "*" next to an input it is required to submit.
+      </div><br>
+      <form action='includes/submission.inc.php' method='post' enctype='multipart/form-data'>
+      <label for='title'>*Cover Image:</label><br>
+        <input type='file' name='file'>
+      <br>
+      <div class='hinttext'>
+      - This image will be used in the gallery for display purposes.<br>
+      - Has to be .jpg, .jpeg, png.
+      </div><br>
+      <label for='title'>*Series Title:</label><br>
+        <input type='text' id='title' name='title' placeholder=''>
+        <div class='hinttext'>
+        - Use a full name for a graphic novel<br>
+        - Use name of comic series
+        </div><br>
+
+          <label for='title'>Alternate/Translated Title:</label><br>
+          <input type='text' id='alt_title' name='alt_title' placeholder=''><br><br>
+
+          <label for='title'>Issue (if applicable):</label><br>
+          <input type='text' id='issue' name='issue' placeholder=''><br><br>
+
+          <label for='title'>Issue Number (if applicable):</label><br>
+          <input type='text' id='issue' name='issuenum' placeholder=''><br><br>
+
+          <label for='title'>Volume (if applicable):</label><br>
+          <input type='text' id='volume' name='volume' placeholder=''><br><br>
+
+
+          <label for='title'>*Published Year:</label><br>
+          <input type='text' id='pyear' name='pyear' placeholder=''><br><br>
+
+          <label for='title'>*Series Year:</label><br>
+          <input type='text' id='syear' name='syear' placeholder=''><br>
+          <div class='hinttext'>
+            - The year the first issue was published. (Usually Issue #1)<br>
+            - If a single comic repeat publication year.
+            </div><br>
+
+          <label for='title'>*Publisher:</label><br>
+          <input type='text' id='publisher' name='publisher' placeholder=''><br><br>
+
+          <h3>Creative Team</h3>
+          <div class='hinttext'>
+            - Seperate multiple people with commas.
+            </div><br>
+          <label for='title'>Writer(s):</label><br>
+          <input type='text' id='author' name='author' placeholder=''><br><br>
+
+          <label for='title'>Artist(s):</label><br>
+          <input type='text' id='artist' name='artist' placeholder=''><br><br>
+
+          <label for='title'>Inker:</label><br>
+        <input type='text' id='Inker' name='inker' placeholder=''><br><br>
+
+          <label for='title'>Colorist:</label><br>
+          <input type='text' id='colorist' name='colorist' placeholder=''><br><br>
+
+          <label for='title'>Letterer:</label><br>
+          <input type='text' id='letterer' name='letterer' placeholder=''><br><br>
+  <h3>Genre</h3>
+      <div class='display-grid'>
+        <input type='checkbox'  name='genre[]' value='Horror'> <label for='title'>Horror</label><br>
+        <input type='checkbox'  name='genre[]' value='SuperHero'> <label for='title'>Superhero</label><br>
+        <input type='checkbox'  name='genre[]' value='Crime'> <label for='title'>Crime</label><br>
+        <input type='checkbox'  name='genre[]' value='Romance'> <label for='title'>Romance</label><br>
+        <input type='checkbox'  name='genre[]' value='War'> <label for='title'>War</label><br>
+        <input type='checkbox'  name='genre[]' value='Humor'> <label for='title'>Humor</label><br>
+        <input type='checkbox'  name='genre[]' value='Fantasy'> <label for='title'>Fantasy</label><br>
+        <input type='checkbox'  name='genre[]' value='Western'> <label for='title'>Western</label><br>
+        <input type='checkbox'  name='genre[]' value='Mystery'> <label for='title'>Mystery</label><br>
+        <input type='checkbox'  name='genre[]' value='History'> <label for='title'>History</label><br>
+        <input type='checkbox'  name='genre[]' value='Romance'> <label for='title'>Drama</label><br>
+        <input type='checkbox'  name='genre[]' value='genre'> <label for='title'>Science Fiction</label><br>
+        <input type='checkbox'  name='genre[]' value='History'> <label for='title'>Nonfiction</label><br>
+        <input type='checkbox'  name='genreCheckbox' value='other'><label for='title'>Other</label><input type='text' id='other' name='otherInput1' placeholder=''><br>
+      </div><br>
+
+      <label for='title'>Main character(s):</label><br>
+      <div class='hinttext'>
+      The name(s) of the main character(s) should be the most important people within the comic.
+      </div>
+        <textarea type='text' class='whenwherewarnings' name='mainChar' placeholder=''></textarea><br>
+      <br>
+
+      <label for='title'>When:</label><br>
+      <div class='hinttext'>
+      When does the story take place?
+      - Include years if possible otherwise describe the era.
+      </div>
+      <textarea class='whenwherewarnings' name='when' placeholder=''></textarea><br><br>
+      <label for='title'>Where:</label><br>
+      <div class='hinttext'>
+      Where does the story take place?
+      - Include region, realm or any helpful reference to location.
+      </div>
+      <textarea class='whenwherewarnings' name='where' placeholder=''></textarea><br><br>
+      <label for='title'>Short Decription of Comic:</label><br>
+      <div class='hinttext'>
+      A short decription of the comic should included basic plot and a decription of the art.
+      <textarea class='summary' name='summary'></textarea><br>
+      </div>
+      <br><label for='title'>Warnings:</label><br>
+      <div class='hinttext'>
+      Is there anything in this comic that readers should know before they read this comic. For example, is there explicit language, nudity, disturbing scenes of rape, or gory violence? We won't limit these comics at all-- we just want our readers to know.
+      </div>
+      <textarea class='whenwherewarnings' name='warning'></textarea><br>
+
+      </div>
+      <div class='section-default'>
+      <h2>How does this comic relate to a sacred text?</h2>
+
+      <label for='title'>*Name of Sacred Text(s):</label><br>  <div class='hinttext'>
+        - Be as specific and complete as possible, include details like book, chapter, verse, sutra, sura, myth, etc. <br>
+        - Example: 'New Testment, John 3:16', Qur'an 5:32, Enuma Elish, 'Poetic Edda, Volsupa (The Prophecy of Raganarok)'.
+        </div>
+        <input type='text' id='sacredtext' name='sacredtext' placeholder=''><br><br>
+      <label for='title'>*The basic relation between the comic and the text.</label><br>
+      <div class='hinttext'>
+        Use the boxes below to explain your comic's relation to the sacred text.
+      </div>
+        <input type='checkbox'  name='relation[]' value='Character reflects a person/deity from sacred text'> <label for='title'>Character reflects a person/deity from sacred text</label><br>
+        <input type='checkbox'  name='relation[]' value='Story plot in comic reflects a plot in a sacred text'> <label for='title'>Story plot in comic reflects a plot in a sacred text</label><br>
+        <input type='checkbox'  name='relation[]' value='Act from a sacred text is in the comic'> <label for='title'>Act from a sacred text is in the comic</label><br>
+        <input type='checkbox'  name='relation[]' value='Scripture was quoted in comic'> <label for='title'>Scripture was quoted in comic</label><br>
+        <input type='checkbox'  name='relation[]' value='Objects representing sacred text are present'> <label for='title'>Objects representing sacred text are present</label><br>
+        <input type='checkbox'  name='relation[]' value='A person/deity from a sacred text is present'> <label for='title'>A person/deity from a sacred text is present</label><br>
+        <input type='checkbox'  name='relation[]' value='A name of a person/deity in a sacred text is referred to '> <label for='title'>A name of a person/deity in a sacred text is referred to </label><br>
+        <input type='checkbox'  name='relation[]' value='A comic cover symbolizing a sacred text'> <label for='title'>A comic cover symbolizing a sacred text</label><br>
+        <input type='checkbox'  name='relationCheckbox'><label for='title'>Other</label><input type='text' id='other' name='otherInput2' placeholder=''><br>
+      <br>
+      <div class='hinttext'>
+      - This image will be used in the gallery for reference and is optional.
+      <label for='title'>Reference Image:</label><br>
+        <input type='file' name='referfile'>
+      </div><br>
+      <label for='title'>*Entry:</label><br>
+          <div class='hinttext'>
+            Please explain who/what/where/when in the comic relates to the sacred text you have mentioned. State whatever information you have --including page numbers if applicable--and include details that relate the sacred text to the comic. <br>
+              </div>
+      <textarea id='entry' name='entry'></textarea><br>
+      <label for='title'>Additional Contributors:</label><br>
+      <div class='hinttext'>
+        Please seperate multiple contributors with a "," <br>
+      </div><br>
+        <textarea type='text' name='contributors'></textarea><br>
+      <label for='title'>External References:</label><br>
+      <div class='hinttext'>
+      - This blank is for any external references you may have used to help visitors understand the context of your entry.
+      - Please include a link to the Grand Comics Database entry for your comic (if possible).
+      </div>
+      <textarea id='externallinks' name='external_links'></textarea><br>
+
+      <button type='submit' name='entry-submit' class='subbutton_1'>Submit</button><br><br><br><br><br><br><br><br>
+    </form>
+    </div>
+  </section>
+</main>
+</div>
+</div>
+<footer id="footer">
+  <p id="copyrightRow">
+  Alex Inskeep, Elizabeth Coody,  Keonte Robertson | Copyright &copy; 2020
+
+  <br>Morningside College 1501 Morningside Ave Sioux City, Iowa 51106 712-274-5000</p>
+</footer>
+</body>
+
+</html>
