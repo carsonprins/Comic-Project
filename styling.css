@@ -1,0 +1,908 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none
+}
+html, body {
+	background-color: #F3F3F3;
+	height: 100%;
+	width: 100%
+}
+header {
+	height: 90px;
+	padding: 0 15px;
+	background-color: #FFF;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: rgb(229, 53, 44) 5px solid;
+	width: 100%;
+	max-width: 98%
+}
+main {
+	padding-top: 20px
+}
+#page-container {
+	min-height: 100vh
+}
+#main {
+	width: 100%;
+	overflow: auto;
+	padding-bottom: 100px
+}
+#footer {
+	background: #35424a;
+	color: #ffffff;
+	padding: 10px;
+	border-top: rgb(229, 53, 44)3px solid;
+	margin-top: -100px;
+	left: 0;
+	right: 0;
+	height: 100px;
+	padding-bottom: 0px;
+	position: absolute;
+	clear: both
+}
+.wrapper-main {
+	width: 100%;
+	margin: 5px auto;
+	padding-top: 20px;
+	flex-wrap: wrap;
+	text-overflow: ellipsis
+}
+.header-logo {
+	width: 7.5%
+}
+.logo {
+	width: 100%
+}
+.bold{
+  font-weight: bold;
+}
+/*info.php- colums*/
+.left {
+	width: 200px;
+	background-color: rgb(135, 197, 226);
+	border-style: groove;
+	float: left
+}
+.right {
+	width: 60%;
+	float: right;
+	background-color: red
+}
+.column-left {
+	width: 200px;
+	border-style: groove;
+	float: right
+}
+.column-right {
+	width: 30%;
+	float: right
+}
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%
+}
+.column {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1
+}
+/*nav header*/
+.nav-header-main ul {
+	height: 100%;
+	padding-top: 15px;
+}
+.nav-header-main ul li {
+	list-style: none;
+	float: left;
+	height: 100%
+}
+.nav-header-main ul li a {
+	display: block;
+	height: 100%;
+	padding: 5px 15px;
+	border-radius: 6px;
+	line-height: 48px;
+	font-family: arial;
+	font-size: 15px;
+	color: #111;
+	text-transform: uppercase
+}
+.header-login {
+	height: 50%;
+	display: inline-flex;
+	flex-direction: row
+}
+.header-login form {
+	height: 100%;
+	display: none
+}
+.header-login form input {
+	height: 100%;
+	width: 100px;
+	padding: 0 15px;
+	border: none;
+	border-radius: 4px;
+	background-color: #F6F6F6;
+	float: left;
+	margin-left: 5px;
+	font-family: arial
+}
+.header-login form button {
+	height: 100%;
+	padding: 0 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	margin-left: 8px;
+	font-family: arial;
+	font-size: 12px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center
+}
+.header-signup {
+	height: 100%;
+	width: 70px;
+	padding: 0 6px;
+	border: none;
+	border-radius: 4px;
+	margin-left: 5px;
+	font-family: arial;
+	font-size: 13px;
+	line-height: 46px;
+	color: #111;
+	text-transform: uppercase;
+	text-align: center
+}
+/*Library & Results*/
+.select-box {
+	float: left;
+    border-style: none;
+    width: 45%;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 6px;
+}
+.double-select-box {
+	display: inline;
+	border-style: none;
+	width: auto;
+	margin: 0px;
+	padding: 10px;
+	border-radius: 6px
+}
+.select-box img {
+	height: 300px;
+    width: 100%;
+}
+.results-image{
+	height: 250px
+}
+.section {
+	width: 100%;
+	padding: 20px;
+	border-radius: 6px
+}
+.section-default {
+	width: 100%;
+	border-radius: 6px;
+	background-color: #FFF;
+	margin-top: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+.section-form {
+	width: 100%;
+	padding: 20px;
+	border-radius: 6px;
+	background-color: #FFF;
+	display: grid
+}
+.login-status {
+	text-align: center;
+	font-size: 26px;
+	font-family: arial;
+	color: #111
+}
+.dashboardbut a{
+	text-align: center;
+	font-size: 26px;
+	font-family: arial;
+	color: #111
+}
+h1 {
+	text-align: center;
+	font-size: 26px;
+	font-family: arial;
+	color: #111
+}
+h2{
+	font-family: arial;
+	color: #111;
+	margin: 10px 0px 15px
+}
+h3 {
+	margin: 10px 0px 15px;
+	font-family: arial;
+	color: #111
+}
+p {
+	text-align: justify;
+	width: 90%;
+	padding: 10px 10px;
+	text-indent: 30px;
+	font-family: Arial, "Times New Roman";
+	flex-wrap: wrap
+}
+.contact-section{
+  	list-style: none;
+}
+.about-secion {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+}
+.about-section img {
+	height: 250px
+}
+li {
+	margin-left: 10px;
+	font-family: Arial, "Times New Roman";
+	margin-left: 50px
+}
+/* signup.php */
+.form-signup {
+	margin: 0 auto;
+	padding-top: 20px;
+	width: 200px
+}
+.form-signup input {
+	width: calc(100% - 30px);
+	height: 30px;
+	padding: 0 15px;
+	margin-bottom: 6px;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	background-color: #F6F6F6;
+	float: left;
+	font-family: arial
+}
+.form-signup button {
+	display: block;
+	height: 40px;
+	padding: 0 10px;
+	margin: 0 auto;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	font-family: arial;
+	font-size: 13px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center
+}
+.signuperror {
+	padding-top: 14px;
+	font-family: arial;
+	font-size: 16px;
+	color: red;
+	text-align: center
+}
+.signupsuccess {
+	padding-top: 14px;
+	font-family: arial;
+	font-size: 16px;
+	color: green;
+	text-align: center
+}
+/*picture sizing*/
+.g-container{
+	padding: 10px;
+	margin-left: 10px
+}
+.g-container input{
+	padding: 10px;
+	margin-left: 20px;
+	display: block;
+	float: left
+}
+.g-container img {
+	padding: 5px;
+	width: 150px;
+	height: 200px
+}
+#info{
+	margin: 10px 20px 0px
+}
+#title {
+	width: 40%
+}
+#sacredtext {
+	width: 40%
+}
+#mainChar {
+	width: 60%;
+	height: 60px
+}
+#entry {
+	width: 60%;
+	height: 120px
+}
+#entry {
+	width: 90%;
+	height: 500px
+}
+#warning {
+	width: 60%;
+	height: 120px
+}
+#externallinks {
+	width: 70%;
+	height: 150px
+}
+#book-details input {
+	width: 40%
+}
+.summary {
+	width: 60%;
+	height: 120px
+}
+.whenwherewarnings {
+	width: 60%;
+	height: 60px
+}
+.subbutton_1 {
+	height: 40px;
+	padding: 0 10px;
+	margin: 0 auto;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	font-family: arial;
+	font-size: 13px;
+	color: #FFF;
+	text-transform: uppercase
+}
+.hinttext {
+	color: red
+}
+button {
+	cursor: pointer
+}
+@media only screen and (max-width: 767px){
+	/*Hidden stuff*/
+	.header-login {
+	display: none
+	}
+	header {
+	height: 80px;
+	margin: 0px;
+	background-color: #FFF;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: rgb(229, 53, 44) 5px solid;
+	    width: 92% !important;
+	}
+	/*Buttons*/
+	.header-buttons{
+	height: 40px;
+	padding: 0 10px;
+	margin-left: 0px;
+	margin-right: 4px;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	font-family: arial;
+	font-size: 13px;
+	line-height: 36px;
+	color: #FFF;
+	text-transform: uppercase
+	}
+	/*NAV MOBILE*/
+	.nav-header-main {
+	display: none
+	}
+	.header-mobile{
+	display: flex;
+	float: left
+	}
+	.nav-header-mobile {
+	height: 10%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	float: left;
+	margin: 0px;
+	padding-left: 0px
+	}
+	.nav-header-mobile ul {
+	list-style: none;
+	flex-direction: row;
+	text-align: center;
+	}
+	.nav-header-mobile ul li {
+	list-style: none;
+	float: left;
+	position: relative;
+	width:100%;
+	}
+	.nav-header-mobile ul li a {
+	display: block;
+	height: 100%;
+	list-style: none;
+	font-family: arial;
+	font-size: 15px;
+	line-height: 12px;
+	color: #111;
+	text-transform: uppercase
+	}
+	.nav-header-mobile ul li ul {
+	display: none;
+	position: absolute;
+	background-color: white;
+	list-style: none;
+	border-radius: 0px 0px 4px 4px
+	}
+	.nav-header-mobile ul li: hover ul {
+	display: block
+	}
+	.nav-header-mobile ul li ul a{
+	display: block;
+	padding: 7px
+	}
+	.nav-header-mobile ul li ul li a: hover{
+	background-color: #f3f3f3
+	}
+	.nav-header-mobile ul li ul{
+	cursor: pointer
+	}
+	.aboutsection li {
+	margin-left: 20px;
+	font-family: Arial, "Times New Roman";
+	padding: 5px
+	}
+	.header-list li{
+	margin-left: 5px
+	}
+	.header-list{
+	display: flex
+	}
+	.header-login-mobile{
+	display: flex
+	}
+	.header-menu{
+	margin-top: 8px;
+	width: 30px;
+	height: auto
+	}
+	.logo {
+	width: 160px;
+	height: auto;
+	margin-top: 5px
+	}
+	.header-login-mobile form button {
+	height: 100%;
+	padding: 10px 10px;
+	margin-left: 50px;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	margin-left: 8px;
+	font-family: arial;
+	font-size: 12px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center
+	}
+	.header-list li {
+	margin: 10px 10px 1px 1px
+	}
+	.logo {
+	width: 170px;
+	height: auto;
+	margin-top: 1px
+	}
+	.column-left {
+	border-style: groove;
+	float: none
+	}
+	.column-edge {
+	border-style: groove;
+	display: flex
+	}
+	.column-right1 {
+	float: none
+	}
+	.row-column {
+	display: inline-block;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%
+	}
+	.double-select-box {
+	display: block;
+	border-style: none;
+	width: auto;
+	margin: 0px;
+	padding: 10px;
+	border-radius: 6px
+	}
+	.Library-search input {
+	width: 100px;
+	height: 30px;
+	padding: 5px 15px;
+	margin: 6px 6px 6px 6px;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	background-color: #F6F6F6;
+	float: left;
+	font-family: arial
+	}
+	.Library-search button {
+	width: 100px;
+	height: 42px;
+	padding: 5px 15px;
+	margin: 6px 6px 6px 6px;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	font-family: arial;
+	font-size: 13px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center
+	}
+	.Library-search{
+	float: right
+	}
+	p {
+	font-size: 12px;
+	text-align: left;
+	width: 90%;
+	margin: 1px 5px 5px 0px;
+	padding: 5px 0px 1px 12px;
+	font-family: Arial, "Times New Roman";
+	flex-wrap: wrap
+	}
+	.results-image{
+	height: 250px
+	}
+}
+@media only screen and (min-width: 768px){
+	.header-login-mobile{
+	display: none
+	}
+	.header-mobile{
+	display: none
+	}
+	.nav-header-main {
+	height: 90%;
+	display: flex;
+	flex-direction: row;
+	width: 100%
+	}
+	.wrapper-main {
+	width: 100%;
+	margin: auto;
+	padding-top: 20px
+	}
+	.header-login-mobile form input {
+	height: 100%;
+	width: 100%;
+	padding: 0 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: #F6F6F6;
+	float: left;
+	font-family: arial
+	}
+	.header-login form {
+	height: 100%;
+	display: flex
+	}
+	p {
+	text-align: justify;
+	width: 90%;
+	padding: 20px 20px;
+	text-indent: 30px;
+	font-family: Arial, "Times New Roman"
+	}
+	.aboutsection li {
+	margin-left: 20px;
+	font-family: Arial, "Times New Roman";
+	padding: 5px
+	}
+	h2{
+	font-family: arial;
+	color: #111;
+	margin: 10px 0px 15px;
+	padding: 5px
+	}
+	h3 {
+	font-family: arial;
+	color: #111;
+	padding: 5px
+	}
+	.dropdown {
+	display: none
+	}
+	/*Logo*/
+}
+@media only screen and (min-width: 414px){
+	.header-mobile{
+	float: left;
+	margin: 0px;
+	padding: 0px
+	}
+	.column-left {
+	border-style: groove;
+	float: none
+	}
+	.column-edge {
+	border-style: groove;
+	display: flex
+	}
+	.column-right1 {
+	float: none
+	}
+	.row-column {
+	display: inline-block;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%
+	}
+	.row {
+	display: inline-block;
+	flex-direction: row
+	}
+	.column {
+	display: block
+	}
+	.left {
+	width: 100%;
+	background-color: rgb(135, 197, 226);
+	border-style: groove
+	}
+	.Library-search{
+	float: right
+	}
+	.right {
+	width: 100%;
+	background-color: red
+	}
+	.select-container {
+	font-size: 10px
+	}
+	.double-select-box {
+	display: block;
+	border-style: none;
+	width: auto;
+	margin: 0px;
+	padding: 10px;
+	border-radius: 6px
+	}
+	.Library-search input {
+	width: 100px;
+	height: 30px;
+	padding: 5px 15px;
+	margin: 6px 6px 6px 6px;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	background-color: #F6F6F6;
+	float: left;
+	font-family: arial
+	}
+	.Library-search button {
+	width: 100px;
+	height: 42px;
+	padding: 5px 15px;
+	margin: 6px 6px 6px 6px;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	font-family: arial;
+	font-size: 13px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center
+	}
+	.header-login-mobile form button {
+	height: 100%;
+	padding: 10px 10px;
+	margin-left: 50px;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	margin-left: 8px;
+	font-family: arial;
+	font-size: 12px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center
+	}
+	.header-list li {
+	margin: 15px 35px 15px 10px
+	}
+}
+@media only screen and (min-width: 1200px){
+	main {
+	font-size: medium
+	}
+	.left {
+	width: 200px;
+	background-color: rgb(135, 197, 226);
+	border-style: groove;
+	float: left
+	}
+	.right {
+	width: 60%;
+	float: right;
+	background-color: red
+	}
+	.column-left {
+	width: 200px;
+	border-style: groove;
+	float: right
+	}
+	.column-right {
+	width: 30%;
+	float: right
+	}
+	.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%
+	}
+	.column {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1
+	}
+	.header-mobile{
+	display: none
+	}
+	.nav-header-main {
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	width: 100%
+	}
+	.wrapper-main {
+	width: 1000px;
+	margin: 5px auto;
+	padding-top: 20px
+	}
+	.select-box {
+	float: left;
+	border-style: none;
+	width: 23%;
+	margin: 0px;
+	padding: 10px;
+	border-radius: 6px
+	}
+	.double-select-box {
+	display: inline;
+	border-style: none;
+	width: auto;
+	margin: 0px;
+	padding: 10px;
+	border-radius: 6px
+	}
+	.select-box img {
+	height: 300px;
+	width: 100%;
+	}
+	.results-image{
+	height: 250px
+	}
+	.section {
+	width: 100%;
+	padding: 20px;
+	border-radius: 6px
+	}
+	.section-default {
+	width: 100%;
+	padding: 20px;
+	border-radius: 6px;
+	background-color: #FFF;
+	margin-top: 10px;
+	margin-bottom: 100px
+	}
+	.section-form {
+	width: 100%;
+	padding: 20px;
+	border-radius: 6px;
+	background-color: #FFF;
+	display: grid
+	}
+	.login-status {
+	text-align: center;
+	font-size: 26px;
+	font-family: arial;
+	color: #111
+	}
+	.header-login form {
+	height: 100%;
+	display: flex
+	}
+	p {
+	text-align: justify;
+	width: 90%;
+	padding: 20px 20px;
+	text-indent: 30px;
+	font-family: Arial, "Times New Roman"
+	}
+	.dropdown {
+	display: none
+	}
+	.form-signup {
+	margin: 0 auto;
+	padding-top: 20px;
+	width: 200px
+	}
+	.form-signup input {
+	width: calc(100% - 30px);
+	height: 30px;
+	padding: 0 15px;
+	margin-bottom: 6px;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	background-color: #F6F6F6;
+	float: left;
+	font-family: arial
+	}
+  .dashboardbut {
+  	height: 100%;
+  	padding: 0 10px;
+  	border: none;
+  	border-radius: 4px;
+  	background-color: #333;
+  	margin-left: 8px;
+  	font-family: arial;
+  	font-size: 12px;
+  	color: #FFF;
+  	text-transform: uppercase;
+    text-align: center;
+    line-height:40px;
+  }
+	.form-signup button {
+	display: block;
+	height: 40px;
+	padding: 0 10px;
+	margin: 0 auto;
+	border: none;
+	border-radius: 4px;
+	background-color: #333;
+	font-family: arial;
+	font-size: 13px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center
+	}
+	li {
+	margin-left: 10px;
+	font-family: Arial, "Times New Roman";
+	margin-left: 50px
+	}
+}
+
+#main > div > section > img {
+	width:100%;
+}
+.menu_ul_mobo {
+	display:block !important;
+}
+.hidden {
+	display:none !important;
+}
