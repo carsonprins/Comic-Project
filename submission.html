@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comics and Sacred Texts</title>
     <link rel="stylesheet" href="styling.css">
-    <link rel="short icon" type="image/jpg" href="img/ComicHandsLogo.jpg">
+    <link rel="short icon" type="image/jpg" href="images/ComicHandsLogo.jpg">
     <link rel="stylesheet" type="text/css" media="print" href="style.css">
   </head>
   <body>
@@ -14,9 +14,7 @@
   <header>
       <div class="header-main">
     <nav class="nav-header-main">
-      <a class="header-logo" href="index.php">
-      <img class="logo" src="img/ComicHandsLogo.jpg" alt="CAT">
-    </a>
+      <img class="header-logo" src="images/ComicHandsLogo.jpg" alt="CAT">
           <ul>
             <li class="header"><a href="homepage.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -24,10 +22,7 @@
           </ul>
         </nav>
       </div>
-      <div class="header-login">
-        <form action="includes/logout.inc.php" method="post">
-          <button type="submit" name="logout-submit">Logout</button>
-          </form>      </div>
+      <div class="header-login"></div>
 
         <div class="header-mobile">
           <nav class="nav-header-mobile">
@@ -62,23 +57,12 @@
     <div class='section-default'>
       <h1>Complete this database submission form</h1><br>
             <h2>Comic information</h2><br>
-      <div class='hinttext'>
-      - If there is a "*" next to an input it is required to submit.
-      </div><br>
       <form action='includes/submission.inc.php' method='post' enctype='multipart/form-data'>
-      <label for='title'>*Cover Image:</label><br>
+      <label for='title'>Cover Image:</label><br>
         <input type='file' name='file'>
-      <br>
-      <div class='hinttext'>
-      - This image will be used in the gallery for display purposes.<br>
-      - Has to be .jpg, .jpeg, png.
-      </div><br>
-      <label for='title'>*Series Title:</label><br>
-        <input type='text' id='title' name='title' placeholder=''>
-        <div class='hinttext'>
-        - Use a full name for a graphic novel<br>
-        - Use name of comic series
-        </div><br>
+      <br><br>
+      <label for='title'>Series Title:</label><br>
+        <input type='text' id='title' name='title' placeholder=''><br><br>
 
           <label for='title'>Alternate/Translated Title:</label><br>
           <input type='text' id='alt_title' name='alt_title' placeholder=''><br><br>
@@ -93,17 +77,13 @@
           <input type='text' id='volume' name='volume' placeholder=''><br><br>
 
 
-          <label for='title'>*Published Year:</label><br>
+          <label for='title'>Published Year:</label><br>
           <input type='text' id='pyear' name='pyear' placeholder=''><br><br>
 
-          <label for='title'>*Series Year:</label><br>
-          <input type='text' id='syear' name='syear' placeholder=''><br>
-          <div class='hinttext'>
-            - The year the first issue was published. (Usually Issue #1)<br>
-            - If a single comic repeat publication year.
-            </div><br>
+          <label for='title'>Series Year:</label><br>
+          <input type='text' id='syear' name='syear' placeholder=''><br><br>
 
-          <label for='title'>*Publisher:</label><br>
+          <label for='title'>Publisher:</label><br>
           <input type='text' id='publisher' name='publisher' placeholder=''><br><br>
 
           <h3>Creative Team</h3>
@@ -139,7 +119,7 @@
         <input type='checkbox'  name='genre[]' value='Romance'> <label for='title'>Drama</label><br>
         <input type='checkbox'  name='genre[]' value='genre'> <label for='title'>Science Fiction</label><br>
         <input type='checkbox'  name='genre[]' value='History'> <label for='title'>Nonfiction</label><br>
-        <input type='checkbox'  name='genreCheckbox' value='other'><label for='title'>Other</label><input type='text' id='other' name='otherInput1' placeholder=''><br>
+        <input type='checkbox'  name='genreCheckbox' value='other'><label for='title'>Other </label><input type='text' id='other' name='otherInput1' placeholder=''><br>
       </div><br>
 
       <label for='title'>Main character(s):</label><br>
@@ -193,7 +173,7 @@
         <input type='checkbox'  name='relation[]' value='A person/deity from a sacred text is present'> <label for='title'>A person/deity from a sacred text is present</label><br>
         <input type='checkbox'  name='relation[]' value='A name of a person/deity in a sacred text is referred to '> <label for='title'>A name of a person/deity in a sacred text is referred to </label><br>
         <input type='checkbox'  name='relation[]' value='A comic cover symbolizing a sacred text'> <label for='title'>A comic cover symbolizing a sacred text</label><br>
-        <input type='checkbox'  name='relationCheckbox'><label for='title'>Other</label><input type='text' id='other' name='otherInput2' placeholder=''><br>
+        <input type='checkbox'  name='relationCheckbox'><label for='title'>Other </label><input type='text' id='other' name='otherInput2' placeholder=''><br>
       <br>
       <div class='hinttext'>
       - This image will be used in the gallery for reference and is optional.
