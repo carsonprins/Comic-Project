@@ -52,10 +52,10 @@ main {
 	text-overflow: ellipsis
 }
 .header-logo {
-	width: 7.5%
+	width: 80px;
 }
 .logo {
-	width: 100%
+	width: 100%;
 }
 .bold{
   font-weight: bold;
@@ -305,13 +305,19 @@ li {
 /*picture sizing*/
 .g-container{
 	padding: 10px;
-	margin-left: 10px
 }
 .g-container input{
 	padding: 10px;
-	margin-left: 20px;
+	margin-right:5px;
 	display: block;
-	float: left
+	float: right;
+}
+.g-container h1{
+	float:left;
+	margin-right:40px;
+}
+.g-container button{
+	float: right;
 }
 .g-container img {
 	padding: 5px;
