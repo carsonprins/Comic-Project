@@ -181,10 +181,27 @@ main {
 .select-box img {
 	height: 300px;
     width: 100%;
+    transition: .5s ease;
 }
+
+.select-box:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: .5s ease;
+    }
+
 .results-image{
-	height: 250px
+	height: 250px;
 }
+
+.results-image:hover{
+	-webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    transition: .5s ease;
+}
+
 .section {
 	width: 100%;
 	padding: 20px;
@@ -760,7 +777,7 @@ button {
 	float: right
 	}
 	.column-right {
-	width: 30%;
+	height: 30%;
 	float: right
 	}
 	.row {
