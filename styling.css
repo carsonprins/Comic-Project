@@ -399,6 +399,7 @@ li {
 button {
 	cursor: pointer
 }
+
 @media only screen and (max-width: 767px){
 	/*Hidden stuff*/
 	.header-login {
@@ -762,7 +763,7 @@ button {
 	}
 	.left {
 	width: 200px;
-	background-color: rgb(208, 48, 48);
+	background-color: rgb(208, 64, 62);
 	border-style: groove;
 	float: left
 	}
@@ -861,9 +862,10 @@ button {
 	}
 	p {
 	text-align: justify;
-	width: 90%;
-	padding: 20px 20px;
-	text-indent: 30px;
+	font-size: 19px;
+	width:90%;
+	padding: 15px 20px;
+	text-indent: 55px;
 	font-family: Arial, "Times New Roman"
 	}
 	.dropdown {
@@ -919,6 +921,7 @@ button {
 	margin-left: 50px
 	}
 }
+
 
 #main > div > section > img {
 	width:100%;
