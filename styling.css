@@ -254,7 +254,6 @@ p {
 	text-align: justify;
 	width: 90%;
 	padding: 10px 10px;
-	text-indent: 30px;
 	font-family: Arial, "Times New Roman";
 	flex-wrap: wrap
 }
@@ -637,7 +636,6 @@ button {
 	text-align: justify;
 	width: 90%;
 	padding: 20px 20px;
-	text-indent: 30px;
 	font-family: Arial, "Times New Roman"
 	}
 	.aboutsection li {
@@ -865,7 +863,6 @@ button {
 	font-size: 19px;
 	width:90%;
 	padding: 15px 20px;
-	text-indent: 55px;
 	font-family: Arial, "Times New Roman"
 	}
 	.dropdown {
