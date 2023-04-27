@@ -25,6 +25,11 @@ main {
 }
 #page-container {
 	min-height: 100vh
+
+	
+}
+.horror{
+	float: left;
 }
 #main {
 	width: 100%;
@@ -169,7 +174,36 @@ main {
     margin: 0px;
     padding: 10px;
     border-radius: 6px;
+	
 }
+.select-box1 {
+	
+    border-style: none;
+    width: 45%;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 6px;
+	
+}
+.select-box2 {
+	
+    border-style: none;
+    width: 45%;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 6px;
+	
+}
+.select-box3 {
+
+    border-style: none;
+    width: 45%;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 6px;
+	
+}
+
 .double-select-box {
 	display: inline;
 	border-style: none;
@@ -182,14 +216,50 @@ main {
 	height: 300px;
     width: 100%;
     transition: .5s ease;
+	
+}
+.select-box1 img {
+	height: 300px;
+    width: 50%;
+    transition: .5s ease;
+}
+.select-box2 img {
+	height: 300px;
+    width: 50%;
+    transition: .5s ease;
+}
+.select-box3 img {
+	height: 300px;
+    width: 50%;
+    transition: .5s ease;
 }
 
 .select-box:hover{
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-    transition: .5s ease;
-    }
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: .5s ease;
+
+}
+.select-box1:hover{
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: .5s ease;
+
+}
+.select-box2:hover{
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: .5s ease;
+}
+.select-box3:hover{
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: .5s ease;
+}
 
 .results-image{
 	height: 250px;
@@ -243,7 +313,8 @@ h1 {
 h2{
 	font-family: arial;
 	color: #111;
-	margin: 10px 0px 15px
+	margin: 10px 0px 15px;
+	text-shadow: 3px 3px #dcd2d2;
 }
 h3 {
 	margin: 10px 0px 15px;
@@ -255,8 +326,13 @@ p {
 	width: 90%;
 	padding: 10px 10px;
 	font-family: Arial, "Times New Roman";
-	flex-wrap: wrap
+	flex-wrap: wrap;
+	line-height: 1;
+	
 }
+a {
+	color: rgb(0, 0, 0);
+  }
 .contact-section{
   	list-style: none;
 }
@@ -702,7 +778,8 @@ button {
 	background-color: red
 	}
 	.select-container {
-	font-size: 10px
+	font-size: 10px;
+	
 	}
 	.double-select-box {
 	display: block;
@@ -754,6 +831,7 @@ button {
 	.header-list li {
 	margin: 15px 35px 15px 10px
 	}
+
 }
 @media only screen and (min-width: 1200px){
 	main {
@@ -806,25 +884,66 @@ button {
 	padding-top: 20px
 	}
 	.select-box {
-	float: left;
-	border-style: none;
-	width: 23%;
-	margin: 0px;
-	padding: 10px;
-	border-radius: 6px
-	}
+		float: left;
+		border-style: none;
+		width: 23%;
+		margin: 0px;
+		padding: 10px;
+		border-radius: 6px;
+		
+		}
+		.select-box1 {
+			
+		border-style: none;
+		width: 23%;
+		margin: 0px;
+		padding: 10px;
+		border-radius: 6px
+		}
+		.select-box2 {
+		float: left;
+		border-style: none;
+		width: 23%;
+		margin: 0px;
+		padding: 10px;
+		border-radius: 6px
+		}
+	
+		.select-box3 {
+			float: left;		
+			border-style: none;
+			width: 23%;
+			margin: 0px;
+			padding: 10px;
+			border-radius: 6px
+			}
+	
+
 	.double-select-box {
 	display: inline;
 	border-style: none;
 	width: auto;
 	margin: 0px;
 	padding: 10px;
-	border-radius: 6px
+	border-radius: 6px;
+	
 	}
 	.select-box img {
-	height: 300px;
-	width: 100%;
-	}
+		height: 300px;
+		width: 100%;
+		}
+		.select-box1 img {
+		height: 300px;
+		width: 100%;
+		}
+		.select-box2 img {
+		height: 300px;
+		width: 100%;
+		}
+		.select-box3 img {
+		height: 300px;
+		width: 100%;
+		}
 	.results-image{
 	height: 250px
 	}
