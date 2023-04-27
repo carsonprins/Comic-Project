@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="WASSSUB">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comics and Sacred Texts</title>
+    <link rel="stylesheet" href="static/styling.css">
+    <link rel="short icon" type="static/jpg" href="static/ComicHandsLogo.jpg">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+  </head>
+  <body>
 
+  <header>
+      <div class="header-main">
+        <nav class="nav-header-main">
+            <img class="header-logo" src="static/ComicHandsLogo.jpg" alt="CAT">
+          <ul>
+            <li class="header"><a href="/about">About</a></li>
+            <li><a href="/submission">Submission</a></li>
+            <li><a href="/library">Library</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-login">
+        <form action="includes/login.inc.php" method="post">
+          <input type="text" name="mailID" placeholder="Email">
+          <input type="password" name="pwd" placeholder="password">
+          <button type="submit" name="login">Login</button>
+          </form>
+          <a class="header-signup" href="/signup">SignUp</a>      </div>
+
+        <div class="header-mobile">
+          <nav class="nav-header-mobile">
+            <ul class="header-list">
+              <li class="menu_ul"><a class="header-menu" href="#"><img class="header-menu" id="header-menu" src="static/ui.png" alt="CAT"></a>
+                <ul class="menu_ul_mobo hidden">
+                  <li><a href="about.php">About</a></li>
+                  <li><a href="submission.php">Submission</a></li>
+                  <li><a href="library.php">Library</a></li>
+                </ul>
+              </li>
+              <li>
+              <a class="logo" href="index.php">
+              <img class="logo" src="static/candts.jpeg" alt="CAT">
+            </a>
+          </li>
+
+            </ul>
+              </nav>
+              </div>
+              <div class="header-login-mobile">
+                
+                  <a class="header-buttons" href="login.php">login</button>
+                  </form>
+                  <a class="header-buttons" href="signup.php">SignUp</a>              </div>
+
+
+  </header>
+        <div id="page-container">
+
+    <main id="main">
+            <div class="wrapper-main">
+            <section class="section-default">
+                        <h1>Welcome</h1>
+                <div class="about-section">
+                  <p>The Comics and Sacred Text Database strives to show how bring the idea of sacred texts are in comics and teach educators, scholars, and readers about these instances and how they are everywhere you look!</p>
+                </div>
+                  <img src="static/ComicLogo1.jpeg">
+                  <div class="g-container">
+                  <h1>You Can Search for Specific Comics or Sacred Texts!<h1>
+            
+                  <!-- <button type='submit' name="submitsearch" class='subbutton_1'>Search</button> -->
+                  <!-- <input class="" type='text' name='search' placeholder='Enter Here!'><br> -->
+                <form action="/filter" method="POST">        
+                    <!-- <select name="attribute"> -->
+                        <!-- <option disabled selected value="">Attribute</option> -->
+                        <!-- <option value="reg_name">Name</option> -->
+                        <!-- <option value="reg_year">Year</option> -->
+                        <!-- <option value="reg_author">Author</option> -->
+                        <!-- <option value="reg_genre">Genre</option> -->
+                        <!-- <option value="reg_relig">Religion</option> -->
+                    <!-- </select> -->
+
+                    <input class="" type='text' name='search' placeholder='Enter Here!'><br>        
+            
+                    <button type='submit' name="submitsearch" class='subbutton_1'>Search</button>
+                </form>
+                </div>
+                    <div class="select-box">
+                    <a href="52.html"><img src="static/52.jpeg"></a>
+                    </div>
+                <div>
+                    {% for comic in comic_registrants %}
+                    <div class="select-box">
+                    <a href="">  <img src='static/{{ comic.reg_image }}'></a>
+                    </div>
+                    {% endfor %}                    
+                </div>
+               </section>
+          </main>
+        </div>
+        </div>
+        <footer id="footer">
+          <p id="copyrightRow">
+          Alex Inskeep, Elizabeth Coody,  Keonte Robertson | Copyright &copy; 2020
+        
+          <br>Morningside College 1501 Morningside Ave Sioux City, Iowa 51106 712-274-5000</p>
+        </footer>
+        </body>
+        
+    </html>
