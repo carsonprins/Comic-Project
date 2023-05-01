@@ -37,21 +37,23 @@
                 name = "delete">
                 <button type = "submit" value="Delete" class='subbutton_1'>Delete</button><br>
             </form>
-            <form class="Library-search" action="/filterLib" method="POST">        
-                <input class="" type='text' name='search' placeholder='Enter keywords'>        
+            <form class="Library-search" action="/filterLib" method="POST">
+                <select name="attribute">
+                    <option disabled selected value="">Attribute</option>
+                    <option value="reg_title">Title</option>
+                    <option value="reg_publisher">Publisher</option>
+                    <option value="reg_author">Author</option>
+                    <option value="reg_artist">Artist</option>
+                    <option value="reg_genre">Genre</option>
+                    <option value="reg_sacredtext">Sacredtext</option>
+                    <option value="reg_contributors">Contributors</option>
+                </select>        
+                <input class="" type='text' name="searchLib" placeholder='Enter keywords'>        
                 <button type='submit' name="submitsearch" class='subbutton_1'>Search</button><br>
             </form>
       <div class="select-container">
-      <!-- <div class='double-select-box'><div class='row-column'><a href='info.php?title=John Constantine, Hellblazer: Stations of the Cross&author=Mike Carey&publisher=DC/Vertigo&iduser=18'> -->
-      <!-- <div class='column-edge'><img class='results-image' src='static/StationsoftheCross.jpeg'><div class='column-right1'><h3>John Constantine, Hellblazer: Stations of the Cross</h3><br> -->
-        <!-- <p>Author: Mike Carey</p> -->
-        <!-- <p>Publisher: DC/Vertigo</p> -->
-        <!-- <p>Sacred Text: New Testament, Gospels </p> -->
-        <!-- <p>Relation:<br>Story plot in comic reflects a plot in a sacred text</p> -->
-        <!-- <p>Genre: Horror, Crime, Fantasy</p></a> -->
-        <!-- </div></div></div></div> -->
         {% for comic in comic_registrants %}
-            <div class='double-select-box'><div class='row-column'><div class='column-edge'>
+            <div class='double-select-box'><div class='row-column'><div class='column-edge'><a href="/comic_template">
             <img class='results-image' src= "static/{{ comic.reg_image }}" ><div class='column-right1'>
             <h3>{{ comic.reg_title }}</h3><br>
             <p>Author: {{ comic.reg_author }}</p>
@@ -59,7 +61,7 @@
             <p>Sacred Text: {{ comic.reg_sacredtext }}</p>
             <p>Relation: {{ comic.reg_relation }}</p>
             <p>Genre: {{ comic.reg_genre }}</p>
-            </div></div></div></div>
+            </div></div></div></div></a>
         {% endfor %}
       </div>
   </section>
