@@ -35,14 +35,15 @@
                   <img src="static/ComicLogo1.jpeg">
                   <div class="g-container">
             
-                  <!-- <button type='submit' name="submitsearch" class='subbutton_1'>Search</button> -->
-                  <!-- <input class="" type='text' name='search' placeholder='Enter Here!'><br> -->
+                  <form action="/filter" method="POST">   
+                    <button type='submit' name="submitsearch" class='subbutton_1'>Search</button>     
+                    <input class="" type='text' name='search' placeholder='Enter Here!'><br>        
+                  </form>
 
                 <div>
                     {% for comic in comic_registrants %}
                     <div class="select-box">
-                    <a href="">  <img src='static/{{ comic.reg_image }}'>{{ comic.reg_title }}</a>
-                    </div>
+                    <a href="/comic_template">  <img src='static/{{ comic.reg_image }}'>{{ comic.reg_title }}</a>                    </div>
                     {% endfor %}                    
                 </div>
                </section>
