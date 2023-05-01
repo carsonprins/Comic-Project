@@ -20,6 +20,26 @@ header {
 	width: 100%;
 	max-width: 98%
 }
+.header {
+	
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	background-color: #f8f8f8;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 9px #999;
+  }
+  
+  .header:hover {background-color: }
+  
+  .header:active {
+	background-color: #ce3030;
+	box-shadow: 0 5px #c0c0c0;
+	transform: translateY(4px);
+  }
 main {
 	padding-top: 20px
 }
@@ -417,7 +437,8 @@ li {
 	height: 200px
 }
 #info{
-	margin: 10px 20px 0px
+	margin: 10px 20px 0px;
+	
 }
 #title {
 	width: 40%
@@ -616,7 +637,8 @@ button {
 	}
 	.column-edge {
 	border-style: groove;
-	display: flex
+	display: flex;
+	
 	}
 	.column-right1 {
 	float: none
@@ -756,7 +778,9 @@ button {
 	display: inline-block;
 	flex-direction: row;
 	flex-wrap: wrap;
-	width: 100%
+	width: 100%;
+	
+	
 	}
 	.row {
 	display: inline-block;
@@ -945,7 +969,8 @@ button {
 		width: 100%;
 		}
 	.results-image{
-	height: 250px
+	height: 350px;
+
 	}
 	.section {
 	width: 100%;
