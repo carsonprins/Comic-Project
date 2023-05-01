@@ -92,15 +92,16 @@ def redirTemplate():
     # Redirect to the template page.
     # Create a Cloud Datastore client.
     datastore_client = datastore.Client()
-    # attribute = "reg_title"
-    # search = {{ comic.reg_title }}
-    #query = datastore_client.query(kind="comic")
-    # query.add_filter(attribute, "=", search)
+    attribute = "reg_title"
+    comic_name=request.args.get("comic_name")
+    query = datastore_client.query(kind="comic")
+    query.add_filter(attribute, "=", comic_name)
+
     # Use the Cloud Datastore client to fetch information from Datastore about
     # each registrant.
-    query = datastore_client.query(kind="comic")
+
     comic_registrants = list(query.fetch())
-    return render_template("/comic_template.html", comic_registrants=comic_registrants)
+    return render_template("/comic_template.html", comic_registrants=comic_registrants, read_comic = comic_name)
 
 @app.route("/signup", methods=["GET","POST"])
 def redirSignup():
@@ -165,8 +166,6 @@ def register():
     if not title:
         return render_template("comic_failure.html", userMissing="the year the comic was published.")
     if not pubyear:
-        return render_template("comic_failure.html", userMissing="the year the comic was published.")
-    if not seriesyear:
         return render_template("comic_failure.html", userMissing="the year the comic was published.")
     if not publisher:
         return render_template("comic_failure.html", userMissing="the religious component of the comic.")
