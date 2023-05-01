@@ -220,17 +220,19 @@ def register():
     datastore_client.put(entity)
 
     return redirect("/library")
-
-
-@app.route("/filter", methods=["GET","POST"])
+    
+@app.route("/filter", methods=["GET", "POST"])
 def filterComics():
-    #Create a Cloud Datastore client.
+    # Create a Cloud Datastore client.
     datastore_client = datastore.Client()
 
     search = request.form.get("search")
     attribute = "reg_title"
+
+    # Query for entities that contain the substring in reg_title
     query = datastore_client.query(kind="comic")
     query.add_filter(attribute, "=", search)
+
     comic_registrants = list(query.fetch())
     return render_template("/homepage.html", comic_registrants=comic_registrants)
 
@@ -238,8 +240,9 @@ def filterComics():
 def filterLibrary():
     #Create a Cloud Datastore client.
     datastore_client = datastore.Client()
-    search = request.form.get("searchLib")
-    attribute = request.form.get("attribute")
+
+    search = request.form.get("search")
+    attribute = "reg_title"
     query = datastore_client.query(kind="comic")
     query.add_filter(attribute, "=", search)
     comic_registrants = list(query.fetch())
@@ -268,3 +271,69 @@ if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
 # [END gae_python3_app]
 # [END gae_python38_app]
+
+import hashlib
+
+@app.route('/reg_signup', methods=["GET","POST"])
+def registerSignup():
+    email = request.form.get("email")
+    pwd = request.form.get("pwd").encode('utf-8')  # Convert password to bytes.
+
+    # Hash the password using SHA-256.
+    hashed_pwd = hashlib.sha256(pwd).hexdigest()
+
+    # Create a Cloud Datastore client.
+    datastore_client = datastore.Client()
+
+    # The kind for the new entity.
+    kind = "account"
+
+    # The name/ID for the new entity.
+    regname = email
+
+    # Create the Cloud Datastore key for the new entity.
+    key = datastore_client.key(kind, regname)
+
+    # Create the entity and set the properties.
+    entity = datastore.Entity(key)
+    entity["reg_email"] = email
+    entity["reg_pwd"] = hashed_pwd
+
+    # Save the new entity to Datastore.
+    datastore_client.put(entity)
+
+    return redirect("/home")
+
+@app.route('/reg_login', methods=["GET","POST"])
+def login():
+    email = request.form.get("email")
+    pwd = request.form.get("pwd").encode('utf-8')  # Convert password to bytes.
+
+    # Create a Cloud Datastore client.
+    datastore_client = datastore.Client()
+
+    # The kind for the entity.
+    kind = "account"
+
+    # The name/ID for the entity.
+    regname = email
+
+    # Create the Cloud Datastore key for the entity.
+    key = datastore_client.key(kind, regname)
+
+    # Get the entity from Datastore.
+    entity = datastore_client.get(key)
+
+    if entity:
+        # Hash the entered password using SHA-256.
+        hashed_pwd = hashlib.sha256(pwd).hexdigest()
+
+        if hashed_pwd == entity["reg_pwd"]:
+            # Passwords match, redirect to home page.
+            return redirect("/home")
+        else:
+            # Passwords do not match, display error message.
+            return "Invalid email or password"
+    else:
+        # Account not found, display error message.
+        return "Invalid email or password"
