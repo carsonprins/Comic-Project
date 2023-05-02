@@ -23,8 +23,12 @@
         </nav>
       </div>
       <div class="header-login">
-          <a class="header-signup" href="/login">Login</button>
-          <a class="header-signup" href="/signup">SignUp</a>      </div>
+        {% block body %}
+        <form action="/logout">
+            <button type="submit" name="logout">Logout</button>
+        </form>
+        {% endblock %}
+        </div>
 
   </header>
         <div id="page-container">
