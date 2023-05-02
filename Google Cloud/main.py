@@ -14,20 +14,25 @@
 
 # [START gae_python38_app]
 # [START gae_python3_app]
-from flask import Flask, render_template, request, redirect, send_from_directory
+from flask import Flask, render_template, request, redirect, send_from_directory, session
 import os
 import shutil
 from datetime import datetime
 from google.cloud import datastore
 from google.cloud import storage
 from google.cloud.datastore import query as datastore_query
-#from werkzeug.utils import secure_filename
-
+from functools import wraps
 CLOUD_STORAGE_BUCKET = os.environ.get("CLOUD_STORAGE_BUCKET")
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
 app = Flask(__name__)
+app.secret_key = 'verysecretkey'
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_USE_SIGNER'] = True
+
+#sess = session()
 
 GENRES = [
     "Horror",
@@ -55,7 +60,41 @@ RELATIONS = [
     "A name of a person/deity in a sacred text is referred to",
     "A comic cover symbolizing a sacred text"
 ]
+def login_required_home(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user_id' not in session:
+            datastore_client = datastore.Client()
+            query = datastore_client.query(kind="comic")
+            comic_registrants = list(query.fetch())
+            return render_template("loggedout.html", comic_registrants=comic_registrants)
+        return func(*args, **kwargs)
+    return wrapper
+
+def login_required_about(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user_id' not in session:
+            datastore_client = datastore.Client()
+            query = datastore_client.query(kind="comic")
+            comic_registrants = list(query.fetch())
+            return render_template("loggedoutabout.html", comic_registrants=comic_registrants)
+        return func(*args, **kwargs)
+    return wrapper
+
+def login_required_library(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user_id' not in session:
+            datastore_client = datastore.Client()
+            query = datastore_client.query(kind="comic")
+            comic_registrants = list(query.fetch())
+            return render_template("loggedoutlibrary.html", comic_registrants=comic_registrants)
+        return func(*args, **kwargs)
+    return wrapper    
+
 @app.route('/')
+@login_required_home
 def index():
     datastore_client = datastore.Client()
     query = datastore_client.query(kind="comic")
@@ -63,11 +102,13 @@ def index():
     return render_template("/homepage.html", comic_registrants=comic_registrants)
 
 @app.route("/about", methods=["GET","POST"])
+@login_required_about
 def redirAbout():
     # Redirect to the about page.
     return render_template("/about.html")
 
 @app.route("/home", methods=["GET","POST"])
+@login_required_home
 def redirHomepage():
     # Redirect to the home page.
     datastore_client = datastore.Client()
@@ -76,6 +117,7 @@ def redirHomepage():
     return render_template("/homepage.html", comic_registrants=comic_registrants)
 
 @app.route("/library", methods=["GET","POST"])
+@login_required_library
 def redirLibrary():
     # Redirect to the library page.
     # Create a Cloud Datastore client.
@@ -112,13 +154,86 @@ def redirSignup():
 def redirLogin():
     # Redirect to the login page.
     return render_template("/login.html")
+import hashlib
 
-@app.route("/home", methods=["GET","POST"])
-def redirHome():
-    # Redirect to the signup page.
-    return render_template("/homepage.html")
+@app.route("/reg_signup", methods=["GET","POST"])
+def registerSignup():
+    email = request.form.get("email")
+    pwd = request.form.get("pwd").encode('utf-8')  # Convert password to bytes.
+
+    # Hash the password using SHA-256.
+    hashed_pwd = hashlib.sha256(pwd).hexdigest()
+
+    # Create a Cloud Datastore client.
+    datastore_client = datastore.Client()
+
+    # The kind for the new entity.
+    kind = "account"
+
+    # The name/ID for the new entity.
+    regname = email
+
+    # Create the Cloud Datastore key for the new entity.
+    key = datastore_client.key(kind, regname)
+
+    # Create the entity and set the properties.
+    entity = datastore.Entity(key)
+    entity["reg_email"] = email
+    entity["reg_pwd"] = hashed_pwd
+
+    # Save the new entity to Datastore.
+    datastore_client.put(entity)
+
+    return redirect("/home")
+
+
+@app.route("/reg_login", methods=["GET","POST"])
+def loginpage():
+    email = request.form.get("email")
+    pwd = request.form.get("pwd").encode('utf-8')  # Convert password to bytes.
+    # Create a Cloud Datastore client.
+    datastore_client = datastore.Client()
+
+    # The kind for the entity.
+    kind = "account"
+
+    # The name/ID for the entity.
+    regname = email
+
+    # Create the Cloud Datastore key for the entity.
+    key = datastore_client.key(kind, regname)
+
+    # Get the entity from Datastore.
+    entity = datastore_client.get(key)
+
+    if entity:
+        # Hash the entered password using SHA-256.
+        hashed_pwd = hashlib.sha256(pwd).hexdigest()
+
+        if hashed_pwd == entity["reg_pwd"]:
+            session['user_id'] = email
+            # Passwords match, redirect to home page.
+            return redirect("/home")
+        else:
+            # Passwords do not match, display error message.
+            return "Invalid email or password"
+
+def login_required(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user_id' not in session:
+            return redirect('/login')
+        return func(*args, **kwargs)
+    return wrapper
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/login")
 
 @app.route("/submission", methods=["GET","POST"])
+@login_required
 def redirSubmission():
     # Redirect to the signup page.
     return render_template("/submission.html", genres=GENRES, relations=RELATIONS)    
@@ -242,7 +357,9 @@ def filterLibrary():
     datastore_client = datastore.Client()
 
     search = request.form.get("search")
-    attribute = "reg_title"
+    attribute = request.form.get("attribute")
+    if not attribute:
+        return render_template("comic_failure.html", userMissing="the attribute.")
     query = datastore_client.query(kind="comic")
     query.add_filter(attribute, "=", search)
     comic_registrants = list(query.fetch())
@@ -271,69 +388,3 @@ if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
 # [END gae_python3_app]
 # [END gae_python38_app]
-
-import hashlib
-
-@app.route('/reg_signup', methods=["GET","POST"])
-def registerSignup():
-    email = request.form.get("email")
-    pwd = request.form.get("pwd").encode('utf-8')  # Convert password to bytes.
-
-    # Hash the password using SHA-256.
-    hashed_pwd = hashlib.sha256(pwd).hexdigest()
-
-    # Create a Cloud Datastore client.
-    datastore_client = datastore.Client()
-
-    # The kind for the new entity.
-    kind = "account"
-
-    # The name/ID for the new entity.
-    regname = email
-
-    # Create the Cloud Datastore key for the new entity.
-    key = datastore_client.key(kind, regname)
-
-    # Create the entity and set the properties.
-    entity = datastore.Entity(key)
-    entity["reg_email"] = email
-    entity["reg_pwd"] = hashed_pwd
-
-    # Save the new entity to Datastore.
-    datastore_client.put(entity)
-
-    return redirect("/home")
-
-@app.route('/reg_login', methods=["GET","POST"])
-def login():
-    email = request.form.get("email")
-    pwd = request.form.get("pwd").encode('utf-8')  # Convert password to bytes.
-
-    # Create a Cloud Datastore client.
-    datastore_client = datastore.Client()
-
-    # The kind for the entity.
-    kind = "account"
-
-    # The name/ID for the entity.
-    regname = email
-
-    # Create the Cloud Datastore key for the entity.
-    key = datastore_client.key(kind, regname)
-
-    # Get the entity from Datastore.
-    entity = datastore_client.get(key)
-
-    if entity:
-        # Hash the entered password using SHA-256.
-        hashed_pwd = hashlib.sha256(pwd).hexdigest()
-
-        if hashed_pwd == entity["reg_pwd"]:
-            # Passwords match, redirect to home page.
-            return redirect("/home")
-        else:
-            # Passwords do not match, display error message.
-            return "Invalid email or password"
-    else:
-        # Account not found, display error message.
-        return "Invalid email or password"
