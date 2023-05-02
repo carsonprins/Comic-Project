@@ -1,0 +1,10 @@
+{% extends "about.html" %}
+
+{% block body %}
+<form action="/reg_login" method="post">
+    <input type="text" name="email" placeholder="Email">
+    <input type="password" name="pwd" placeholder="Password">
+    <button type="submit" name="login">Login</button>
+</form>
+<a class="header-signup" href="/signup">SignUp</a>
+{% endblock %}
